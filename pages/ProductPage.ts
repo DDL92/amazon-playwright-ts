@@ -3,10 +3,10 @@ import { Page, expect } from '@playwright/test';
 export class ProductPage {
   constructor(private readonly page: Page) {}
 
-  async expectLoaded() {
-    await expect(
-      this.page.locator('span#productTitle')
-    ).toBeVisible();
+  async getProductTitle(): Promise<string> {
+    const title = this.page.locator('span#productTitle');
+    await expect(title).toBeVisible();
+    return (await title.textContent())?.trim() || '';
   }
 
   async addToCart() {

@@ -2,7 +2,7 @@ import { test } from '../../fixtures/test.fixture';
 import { products } from '../../utils/testData';
 
 test.describe('Amazon Cart @regression', () => {
-  test('should add first product to cart', async ({
+  test('should add product to cart', async ({
     homePage,
     searchResultsPage,
     productPage,
@@ -15,10 +15,11 @@ test.describe('Amazon Cart @regression', () => {
     await searchResultsPage.expectResultsPageLoaded();
 
     await searchResultsPage.openFirstProduct();
-    await productPage.expectLoaded();
+    await productPage.getProductTitle();
 
     await productPage.addToCart();
 
     await cartPage.expectItemAdded();
+    await cartPage.expectCartQuantity(1);
   });
 });
