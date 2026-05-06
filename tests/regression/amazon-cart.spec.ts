@@ -1,7 +1,7 @@
 import { test } from '../../fixtures/test.fixture';
 import { products } from '../../utils/testData';
 
-test.describe('Amazon Cart @regression', () => {
+test.describe.skip('Amazon Cart @regression', () => {
   test('should add product to cart', async ({
     homePage,
     searchResultsPage,

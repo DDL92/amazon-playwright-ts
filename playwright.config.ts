@@ -13,9 +13,9 @@ export default defineConfig({
     timeout: 10_000
   },
   reporter: [
-    ['html', { open: 'never' }],
-    ['junit', { outputFile: 'test-results/results.xml' }]
-  ],
+  ['html', { open: 'never' }],
+  ['junit', { outputFile: 'test-results/results.xml' }],
+  ['allure-playwright']],
   use: {
     baseURL: process.env.BASE_URL ?? 'https://www.amazon.com',
     locale: 'es-US',
