@@ -28,6 +28,9 @@ jobs:
       - name: Run smoke tests only
         run: npm run test:smoke
 
+      - name: Run API tests
+        run: npm run test:api
+
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
